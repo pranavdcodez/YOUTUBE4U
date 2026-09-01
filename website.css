@@ -1,0 +1,55 @@
+.add-button {
+    background-color: brown;
+    color: white;
+    border:none;
+    height:40px;
+    width:50px;
+    cursor: pointer;
+    transition: opacity 5s ,
+      color 5s;
+  }
+
+  .add-button:hover {
+    background-color: blue;
+    opacity: 0.5;
+  }
+
+  .add-button:active {
+    background-color: green;
+    opacity: 0.5;
+  }
+
+  .buy-button:hover {
+    background-color: blue;
+    opacity: 0.5;
+  }
+
+  .buy-button:active {
+    background-color: green;
+    opacity: 0.5;
+  }  
+
+   .buy-button {
+    background-color: red;
+    color: white;
+    border: none;
+    height: 40px;
+    width: 50px;
+    cursor: pointer;
+    transition: opacity 5s;
+   }
+
+    .text {
+      font-family: arial;
+    }
+
+    .sale 
+  {
+    text-decoration: arial;
+    background-color: aqua;
+    color:black;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    text-align: center;
+    font-size: 20px;
+  }
