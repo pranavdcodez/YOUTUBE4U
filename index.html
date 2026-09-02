@@ -15,10 +15,6 @@
       rel="stylesheet">
 
     <!-- CSS FILES -->
-    <link rel="stylesheet" href="./styles/general.css">
-    <link rel="stylesheet" href="./styles/header.css">
-    <link rel="stylesheet" href="./styles/video.css">
-    <link rel="stylesheet" href="./styles/sidebar.css">
 
     <!-- FONT SIZE CHANGES -->
     <style>
@@ -42,6 +38,293 @@
 
     </style>
 
+
+
+    <!-- INLINE CSS FOR GITHUB PAGES -->
+    <style>
+/* ===== general.css ===== */
+p {
+  font-family: Roboto, Arial;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+body {
+  margin: 0;
+  padding-top: 80px;
+  padding-left: 96px;
+  padding-right: 24px;
+  background-color: rgb(248, 248, 248);
+}
+
+/* ===== header.css ===== */
+.header {
+  height: 55px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+
+  background-color: white;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: rgb(228, 228, 228);
+}
+
+.left-section {
+  display: flex;
+  align-items: center;
+}
+
+.hamburger-menu {
+  height: 24px;
+  margin-left: 24px;
+  margin-right: 24px;
+}
+
+.youtube-logo {
+  height: 20px;
+}
+
+.middle-section {
+  flex: 1;
+  margin-left: 70px;
+  margin-right: 35px;
+  max-width: 500px;
+  display: flex;
+  align-items: center;
+}
+
+.search-bar {
+  flex: 1;
+  height: 36px;
+  padding-left: 10px;
+  font-size: 16px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(192, 192, 192);
+  border-radius: 2px;
+  box-shadow: inset 1px 2px 3px rgba(0, 0, 0, 0.05);
+  width: 0;
+}
+
+.search-bar::placeholder {
+  font-family: Roboto, Arial;
+  font-size: 16px;
+}
+
+.search-button {
+  height: 40px;
+  width: 66px;
+  background-color: rgb(240, 240, 240);
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(192, 192, 192);
+  margin-left: -1px;
+  margin-right: 10px;
+}
+
+.search-button,
+.voice-search-button,
+.upload-icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.search-button .tooltip,
+.voice-search-button .tooltip,
+.upload-icon-container .tooltip {
+  font-family: Roboto, Arial;
+  position: absolute;
+  background-color: gray;
+  color: white;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
+  border-radius: 2px;
+  font-size: 12px;
+  bottom: -30px;
+  opacity: 0;
+  transition: opacity 0.15s;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.search-button:hover .tooltip,
+.voice-search-button:hover .tooltip,
+.upload-icon-container:hover .tooltip {
+  opacity: 1;
+}
+
+.search-icon {
+  height: 25px;
+}
+
+.voice-search-button {
+  height: 40px;
+  width: 40px;
+  border-radius: 20px;
+  border: none;
+  background-color: rgb(245, 245, 245);
+}
+
+.voice-search-icon {
+  height: 24px;
+}
+
+.right-section {
+  width: 180px;
+  margin-right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+
+.upload-icon {
+  height: 24px;
+}
+
+.youtube-apps-icon {
+  height: 24px;
+}
+
+.notifications-icon {
+  height: 24px;
+}
+
+.notifications-icon-container {
+  position: relative;
+}
+
+.notifications-count {
+  position: absolute;
+  top: -2px;
+  right: -5px;
+  background-color: rgb(200, 0, 0);
+  color: white;
+  font-family: Roboto, Arial;
+  font-size: 11px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  border-radius: 10px;
+}
+
+.current-user-picture {
+  height: 32px;
+  border-radius: 16px;
+}
+
+
+
+/* ===== video.css ===== */
+.thumbnail {
+  width: 100%;
+}
+
+.video-title {
+  margin-top: 0;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  margin-bottom: 10px;
+}
+
+.video-info-grid {
+  display: grid;
+  grid-template-columns: 50px 1fr;
+}
+
+.profile-picture {
+  width: 36px;
+  border-radius: 50px;
+}
+
+.thumbnail-row {
+  margin-bottom: 8px;
+  position: relative;
+}
+
+.video-author,
+.video-stats {
+  font-size: 12px;
+  color: rgb(96, 96, 96);
+}
+
+.video-author {
+  margin-bottom: 4px;
+}
+
+.video-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 16px;
+  row-gap: 40px;
+}
+
+.video-time {
+  font-family: Roboto, Arial;
+  font-size: 12px;
+  font-weight: 500;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-radius: 2px;
+  background-color: black;
+  color: white;
+  position: absolute;
+  bottom: 8px;
+  right: 5px;
+}
+
+/* ===== sidebar.css ===== */
+.sidebar {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  top: 55px;
+  background-color: white;
+  width: 72px;
+  z-index: 200;
+  padding-top: 5px;
+}
+
+.sidebar-link {
+  height: 74px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.sidebar-link:hover {
+  background-color: rgb(235, 235, 235);
+}
+
+.sidebar-link img {
+  height: 24px;
+  margin-bottom: 4px;
+}
+
+.sidebar-link div {
+  font-family: Roboto, Arial;
+  font-size: 10px;
+}
+    </style>
+
   </head>
 
 
@@ -56,11 +339,11 @@
 
         <img
           class="hamburger-menu"
-          src="./icons/hamburger-menu.svg">
+          src="icons/hamburger-menu.svg">
 
         <img
           class="youtube-logo"
-          src="./icons/youtube-logo.svg">
+          src="icons/youtube-logo.svg">
 
       </div>
 
@@ -77,7 +360,7 @@
 
           <img
             class="search-icon"
-            src="./icons/search.svg">
+            src="icons/search.svg">
 
           <div class="tooltip">
             Search
@@ -90,7 +373,7 @@
 
           <img
             class="voice-search-icon"
-            src="./icons/voice-search-icon.svg">
+            src="icons/voice-search-icon.svg">
 
           <div class="tooltip">
             Search with your voice
@@ -107,7 +390,7 @@
 
           <img
             class="upload-icon"
-            src="./icons/upload.svg">
+            src="icons/upload.svg">
 
           <div class="tooltip">
             Create
@@ -118,14 +401,14 @@
 
         <img
           class="youtube-apps-icon"
-          src="./icons/youtube-apps.svg">
+          src="icons/youtube-apps.svg">
 
 
         <div class="notifications-icon-container">
 
           <img
             class="notifications-icon"
-            src="./icons/notifications.svg">
+            src="icons/notifications.svg">
 
           <div class="notifications-count">
             3
@@ -136,7 +419,7 @@
 
         <img
           class="current-user-picture"
-          src="./channel/my-channel.jpeg">
+          src="channel/my-channel.jpeg">
 
       </div>
 
@@ -150,7 +433,7 @@
 
       <div class="sidebar-link">
 
-        <img src="./icons/home.svg">
+        <img src="icons/home.svg">
 
         <div>
           Home
@@ -161,7 +444,7 @@
 
       <div class="sidebar-link">
 
-        <img src="./icons/explore.svg">
+        <img src="icons/explore.svg">
 
         <div>
           Explore
@@ -172,7 +455,7 @@
 
       <div class="sidebar-link">
 
-        <img src="./icons/subscriptions.svg">
+        <img src="icons/subscriptions.svg">
 
         <div>
           Subscriptions
@@ -183,7 +466,7 @@
 
       <div class="sidebar-link">
 
-        <img src="./icons/originals.svg">
+        <img src="icons/originals.svg">
 
         <div>
           Originals
@@ -194,7 +477,7 @@
 
       <div class="sidebar-link">
 
-        <img src="./icons/youtube-music.svg">
+        <img src="icons/youtube-music.svg">
 
         <div>
           YouTube Music
@@ -205,7 +488,7 @@
 
       <div class="sidebar-link">
 
-        <img src="./icons/library.svg">
+        <img src="icons/library.svg">
 
         <div>
           Library
@@ -230,7 +513,7 @@
 
           <img
             class="thumbnail"
-            src="./thumbnail/thumbnail-1.webp"
+            src="thumbnail/thumbnail-1.webp"
             onclick="window.open('https://www.youtube.com/embed/n2RNcPRtAiY', '_blank')">
 
           <div class="video-time">
@@ -246,7 +529,7 @@
 
             <img
               class="profile-picture"
-              src="./channel/channel-1.jpeg">
+              src="channel/channel-1.jpeg">
 
           </div>
 
@@ -281,7 +564,7 @@
 
           <img
             class="thumbnail"
-            src="./thumbnail/thumbnail-2.webp"
+            src="thumbnail/thumbnail-2.webp"
             onclick="window.open('https://www.youtube.com/embed/CQWs3lpJCug', '_blank')">
 
           <div class="video-time">
@@ -297,7 +580,7 @@
 
             <img
               class="profile-picture"
-              src="./channel/channel-2.jpeg">
+              src="channel/channel-2.jpeg">
 
           </div>
 
@@ -332,7 +615,7 @@
 
           <img
             class="thumbnail"
-            src="./thumbnail/thumbnail-3.webp"
+            src="thumbnail/thumbnail-3.webp"
             onclick="window.open('https://www.youtube.com/embed/aF0tLAHO3SY', '_blank')">
 
           <div class="video-time">
@@ -348,7 +631,7 @@
 
             <img
               class="profile-picture"
-              src="./channel/channel-3.jpeg">
+              src="channel/channel-3.jpeg">
 
           </div>
 
@@ -383,7 +666,7 @@
 
           <img
             class="thumbnail"
-            src="./thumbnail/thumbnail-4.webp"
+            src="thumbnail/thumbnail-4.webp"
             onclick="window.open('https://www.youtube.com/embed/Sc6rDez5M3Y', '_blank')">
 
           <div class="video-time">
@@ -399,7 +682,7 @@
 
             <img
               class="profile-picture"
-              src="./channel/channel-4.jpeg">
+              src="channel/channel-4.jpeg">
 
           </div>
 
@@ -434,7 +717,7 @@
 
           <img
             class="thumbnail"
-            src="./thumbnail/thumbnail-5.webp"
+            src="thumbnail/thumbnail-5.webp"
             onclick="window.open('https://www.youtube.com/embed/dAoJVzQLCQ4', '_blank')">
 
           <div class="video-time">
@@ -450,7 +733,7 @@
 
             <img
               class="profile-picture"
-              src="./channel/channel-5.jpeg">
+              src="channel/channel-5.jpeg">
 
           </div>
 
@@ -485,7 +768,7 @@
 
           <img
             class="thumbnail"
-            src="./thumbnail/thumbnail-6.webp"
+            src="thumbnail/thumbnail-6.webp"
             onclick="window.open('https://www.youtube.com/embed/VJ9VC9OqdAA', '_blank')">
 
           <div class="video-time">
@@ -501,7 +784,7 @@
 
             <img
               class="profile-picture"
-              src="./channel/channel-6.jpeg">
+              src="channel/channel-6.jpeg">
 
           </div>
 
@@ -552,7 +835,7 @@
 
             <img
               class="profile-picture"
-              src="./channel/channel-7.jpeg">
+              src="channel/channel-7.jpeg">
 
           </div>
 
@@ -603,7 +886,7 @@
 
             <img
               class="profile-picture"
-              src="./channel/channel-8.jpeg">
+              src="channel/channel-8.jpeg">
 
           </div>
 
@@ -654,7 +937,7 @@
 
             <img
               class="profile-picture"
-              src="./channel/channel-9.jpeg">
+              src="channel/channel-9.jpeg">
 
           </div>
 
@@ -705,7 +988,7 @@
 
             <img
               class="profile-picture"
-              src="./channel/channel-10.jpeg">
+              src="channel/channel-10.jpeg">
 
           </div>
 
@@ -756,7 +1039,7 @@
 
             <img
               class="profile-picture"
-              src="./channel/channel-11.jpeg">
+              src="channel/channel-11.jpeg">
 
           </div>
 
@@ -807,7 +1090,7 @@
 
             <img
               class="profile-picture"
-              src="./channel/channel-12.jpeg">
+              src="channel/channel-12.jpeg">
 
           </div>
 
