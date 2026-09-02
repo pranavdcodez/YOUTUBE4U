@@ -1,506 +1,120 @@
 <!DOCTYPE html>
-
 <html>
+<head>
+  <title>YouTube4u</title>
 
-  <head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
-    <title>YouTube4u</title>
+  <link rel="stylesheet" href="./general.css">
+  <link rel="stylesheet" href="./header.css">
+  <link rel="stylesheet" href="./video.css">
+  <link rel="stylesheet" href="./sidebar.css">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <style>
+    .video-title {
+      font-size: 16px;
+      line-height: 22px;
+    }
 
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    .video-author {
+      font-size: 14px;
+    }
 
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
-      rel="stylesheet">
+    .video-stats {
+      font-size: 14px;
+    }
 
-    <!-- CSS FILES -->
+    .sidebar-link {
+      font-size: 13px;
+    }
+  </style>
+</head>
 
-    <!-- FONT SIZE CHANGES -->
-    <style>
+<body>
 
-      .video-title {
-        font-size: 16px;
-        line-height: 22px;
-      }
+  <div class="header">
 
-      .video-author {
-        font-size: 14px;
-      }
+    <div class="left-section">
+      <img class="hamburger-menu" src="./hamburger-menu.svg">
 
-      .video-stats {
-        font-size: 14px;
-      }
+      <img class="youtube-logo" src="./youtube-logo.svg">
+    </div>
 
-      .sidebar-link {
-        font-size: 13px;
-      }
+    <div class="middle-section">
 
-    </style>
+      <input class="search-bar" type="text" placeholder="Search">
 
+      <button class="search-button">
+        <img class="search-icon" src="./search.svg">
+        <div class="tooltip">Search</div>
+      </button>
 
-
-    <!-- INLINE CSS FOR GITHUB PAGES -->
-    <style>
-/* ===== general.css ===== */
-p {
-  font-family: Roboto, Arial;
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-body {
-  margin: 0;
-  padding-top: 80px;
-  padding-left: 96px;
-  padding-right: 24px;
-  background-color: rgb(248, 248, 248);
-}
-
-/* ===== header.css ===== */
-.header {
-  height: 55px;
-
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
-
-  background-color: white;
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
-  border-bottom-color: rgb(228, 228, 228);
-}
-
-.left-section {
-  display: flex;
-  align-items: center;
-}
-
-.hamburger-menu {
-  height: 24px;
-  margin-left: 24px;
-  margin-right: 24px;
-}
-
-.youtube-logo {
-  height: 20px;
-}
-
-.middle-section {
-  flex: 1;
-  margin-left: 70px;
-  margin-right: 35px;
-  max-width: 500px;
-  display: flex;
-  align-items: center;
-}
-
-.search-bar {
-  flex: 1;
-  height: 36px;
-  padding-left: 10px;
-  font-size: 16px;
-  border-width: 1px;
-  border-style: solid;
-  border-color: rgb(192, 192, 192);
-  border-radius: 2px;
-  box-shadow: inset 1px 2px 3px rgba(0, 0, 0, 0.05);
-  width: 0;
-}
-
-.search-bar::placeholder {
-  font-family: Roboto, Arial;
-  font-size: 16px;
-}
-
-.search-button {
-  height: 40px;
-  width: 66px;
-  background-color: rgb(240, 240, 240);
-  border-width: 1px;
-  border-style: solid;
-  border-color: rgb(192, 192, 192);
-  margin-left: -1px;
-  margin-right: 10px;
-}
-
-.search-button,
-.voice-search-button,
-.upload-icon-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-}
-
-.search-button .tooltip,
-.voice-search-button .tooltip,
-.upload-icon-container .tooltip {
-  font-family: Roboto, Arial;
-  position: absolute;
-  background-color: gray;
-  color: white;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 8px;
-  padding-right: 8px;
-  border-radius: 2px;
-  font-size: 12px;
-  bottom: -30px;
-  opacity: 0;
-  transition: opacity 0.15s;
-  pointer-events: none;
-  white-space: nowrap;
-}
-
-.search-button:hover .tooltip,
-.voice-search-button:hover .tooltip,
-.upload-icon-container:hover .tooltip {
-  opacity: 1;
-}
-
-.search-icon {
-  height: 25px;
-}
-
-.voice-search-button {
-  height: 40px;
-  width: 40px;
-  border-radius: 20px;
-  border: none;
-  background-color: rgb(245, 245, 245);
-}
-
-.voice-search-icon {
-  height: 24px;
-}
-
-.right-section {
-  width: 180px;
-  margin-right: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-shrink: 0;
-}
-
-.upload-icon {
-  height: 24px;
-}
-
-.youtube-apps-icon {
-  height: 24px;
-}
-
-.notifications-icon {
-  height: 24px;
-}
-
-.notifications-icon-container {
-  position: relative;
-}
-
-.notifications-count {
-  position: absolute;
-  top: -2px;
-  right: -5px;
-  background-color: rgb(200, 0, 0);
-  color: white;
-  font-family: Roboto, Arial;
-  font-size: 11px;
-  padding-left: 5px;
-  padding-right: 5px;
-  padding-top: 2px;
-  padding-bottom: 2px;
-  border-radius: 10px;
-}
-
-.current-user-picture {
-  height: 32px;
-  border-radius: 16px;
-}
-
-
-
-/* ===== video.css ===== */
-.thumbnail {
-  width: 100%;
-}
-
-.video-title {
-  margin-top: 0;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 20px;
-  margin-bottom: 10px;
-}
-
-.video-info-grid {
-  display: grid;
-  grid-template-columns: 50px 1fr;
-}
-
-.profile-picture {
-  width: 36px;
-  border-radius: 50px;
-}
-
-.thumbnail-row {
-  margin-bottom: 8px;
-  position: relative;
-}
-
-.video-author,
-.video-stats {
-  font-size: 12px;
-  color: rgb(96, 96, 96);
-}
-
-.video-author {
-  margin-bottom: 4px;
-}
-
-.video-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  column-gap: 16px;
-  row-gap: 40px;
-}
-
-.video-time {
-  font-family: Roboto, Arial;
-  font-size: 12px;
-  font-weight: 500;
-  padding-left: 4px;
-  padding-right: 4px;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  border-radius: 2px;
-  background-color: black;
-  color: white;
-  position: absolute;
-  bottom: 8px;
-  right: 5px;
-}
-
-/* ===== sidebar.css ===== */
-.sidebar {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  top: 55px;
-  background-color: white;
-  width: 72px;
-  z-index: 200;
-  padding-top: 5px;
-}
-
-.sidebar-link {
-  height: 74px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  cursor: pointer;
-}
-
-.sidebar-link:hover {
-  background-color: rgb(235, 235, 235);
-}
-
-.sidebar-link img {
-  height: 24px;
-  margin-bottom: 4px;
-}
-
-.sidebar-link div {
-  font-family: Roboto, Arial;
-  font-size: 10px;
-}
-    </style>
-
-  </head>
-
-
-  <body>
-
-
-    <!-- HEADER -->
-
-    <div class="header">
-
-      <div class="left-section">
-
-        <img
-          class="hamburger-menu"
-          src="icons/hamburger-menu.svg">
-
-        <img
-          class="youtube-logo"
-          src="icons/youtube-logo.svg">
-
-      </div>
-
-
-      <div class="middle-section">
-
-        <input
-          class="search-bar"
-          type="text"
-          placeholder="Search">
-
-
-        <button class="search-button">
-
-          <img
-            class="search-icon"
-            src="icons/search.svg">
-
-          <div class="tooltip">
-            Search
-          </div>
-
-        </button>
-
-
-        <button class="voice-search-button">
-
-          <img
-            class="voice-search-icon"
-            src="icons/voice-search-icon.svg">
-
-          <div class="tooltip">
-            Search with your voice
-          </div>
-
-        </button>
-
-      </div>
-
-
-      <div class="right-section">
-
-        <div class="upload-icon-container">
-
-          <img
-            class="upload-icon"
-            src="icons/upload.svg">
-
-          <div class="tooltip">
-            Create
-          </div>
-
-        </div>
-
-
-        <img
-          class="youtube-apps-icon"
-          src="icons/youtube-apps.svg">
-
-
-        <div class="notifications-icon-container">
-
-          <img
-            class="notifications-icon"
-            src="icons/notifications.svg">
-
-          <div class="notifications-count">
-            3
-          </div>
-
-        </div>
-
-
-        <img
-          class="current-user-picture"
-          src="channel/my-channel.jpeg">
-
-      </div>
+      <button class="voice-search-button">
+        <img class="voice-search-icon" src="./voice-search-icon.svg">
+        <div class="tooltip">Search with your voice</div>
+      </button>
 
     </div>
 
+    <div class="right-section">
 
-
-    <!-- SIDEBAR -->
-
-    <div class="sidebar">
-
-      <div class="sidebar-link">
-
-        <img src="icons/home.svg">
-
-        <div>
-          Home
-        </div>
-
+      <div class="upload-icon-container">
+        <img class="upload-icon" src="./upload.svg">
+        <div class="tooltip">Create</div>
       </div>
 
+      <img class="youtube-apps-icon" src="./youtube-apps.svg">
 
-      <div class="sidebar-link">
-
-        <img src="icons/explore.svg">
-
-        <div>
-          Explore
-        </div>
-
+      <div class="notifications-icon-container">
+        <img class="notifications-icon" src="./notifications.svg">
+        <div class="notifications-count">3</div>
       </div>
 
-
-      <div class="sidebar-link">
-
-        <img src="icons/subscriptions.svg">
-
-        <div>
-          Subscriptions
-        </div>
-
-      </div>
-
-
-      <div class="sidebar-link">
-
-        <img src="icons/originals.svg">
-
-        <div>
-          Originals
-        </div>
-
-      </div>
-
-
-      <div class="sidebar-link">
-
-        <img src="icons/youtube-music.svg">
-
-        <div>
-          YouTube Music
-        </div>
-
-      </div>
-
-
-      <div class="sidebar-link">
-
-        <img src="icons/library.svg">
-
-        <div>
-          Library
-        </div>
-
-      </div>
+      <img class="current-user-picture" src="./my-channel.jpeg">
 
     </div>
 
+  </div>
 
 
-    <!-- VIDEO GRID -->
+  <div class="sidebar">
+
+    <div class="sidebar-link">
+      <img src="./home.svg">
+      <div>Home</div>
+    </div>
+
+    <div class="sidebar-link">
+      <img src="./explore.svg">
+      <div>Explore</div>
+    </div>
+
+    <div class="sidebar-link">
+      <img src="./subscriptions.svg">
+      <div>Subscriptions</div>
+    </div>
+
+    <div class="sidebar-link">
+      <img src="./originals.svg">
+      <div>Originals</div>
+    </div>
+
+    <div class="sidebar-link">
+      <img src="./youtube-music.svg">
+      <div>YouTube Music</div>
+    </div>
+
+    <div class="sidebar-link">
+      <img src="./library.svg">
+      <div>Library</div>
+    </div>
+
+  </div>
+
+
+  <main>
 
     <div class="video-grid">
 
@@ -511,10 +125,7 @@ body {
 
         <div class="thumbnail-row">
 
-          <img
-            class="thumbnail"
-            src="thumbnail/thumbnail-1.webp"
-            onclick="window.open('https://www.youtube.com/embed/n2RNcPRtAiY', '_blank')">
+          <img class="thumbnail" src="./thumbnail-1.webp">
 
           <div class="video-time">
             14:20
@@ -522,17 +133,13 @@ body {
 
         </div>
 
-
         <div class="video-info-grid">
 
           <div class="channel-picture">
 
-            <img
-              class="profile-picture"
-              src="channel/channel-1.jpeg">
+            <img class="profile-picture" src="./channel-1.jpeg">
 
           </div>
-
 
           <div class="video-info">
 
@@ -545,7 +152,7 @@ body {
             </p>
 
             <p class="video-stats">
-              3.4M views &#183; 6 months ago
+              3.4M views · 6 months ago
             </p>
 
           </div>
@@ -555,17 +162,13 @@ body {
       </div>
 
 
-
       <!-- VIDEO 2 -->
 
       <div class="video-preview">
 
         <div class="thumbnail-row">
 
-          <img
-            class="thumbnail"
-            src="thumbnail/thumbnail-2.webp"
-            onclick="window.open('https://www.youtube.com/embed/CQWs3lpJCug', '_blank')">
+          <img class="thumbnail" src="./thumbnail-2.webp">
 
           <div class="video-time">
             11:41
@@ -573,17 +176,13 @@ body {
 
         </div>
 
-
         <div class="video-info-grid">
 
           <div class="channel-picture">
 
-            <img
-              class="profile-picture"
-              src="channel/channel-2.jpeg">
+            <img class="profile-picture" src="./channel-2.jpeg">
 
           </div>
-
 
           <div class="video-info">
 
@@ -596,7 +195,7 @@ body {
             </p>
 
             <p class="video-stats">
-              1.1M views &#183; 3 days ago
+              1.1M views · 3 days ago
             </p>
 
           </div>
@@ -606,17 +205,13 @@ body {
       </div>
 
 
-
       <!-- VIDEO 3 -->
 
       <div class="video-preview">
 
         <div class="thumbnail-row">
 
-          <img
-            class="thumbnail"
-            src="thumbnail/thumbnail-3.webp"
-            onclick="window.open('https://www.youtube.com/embed/aF0tLAHO3SY', '_blank')">
+          <img class="thumbnail" src="./thumbnail-3.webp">
 
           <div class="video-time">
             59:48
@@ -624,17 +219,13 @@ body {
 
         </div>
 
-
         <div class="video-info-grid">
 
           <div class="channel-picture">
 
-            <img
-              class="profile-picture"
-              src="channel/channel-3.jpeg">
+            <img class="profile-picture" src="./channel-3.jpeg">
 
           </div>
-
 
           <div class="video-info">
 
@@ -647,7 +238,7 @@ body {
             </p>
 
             <p class="video-stats">
-              631K views &#183; 1 day ago
+              631K views · 1 day ago
             </p>
 
           </div>
@@ -657,17 +248,13 @@ body {
       </div>
 
 
-
       <!-- VIDEO 4 -->
 
       <div class="video-preview">
 
         <div class="thumbnail-row">
 
-          <img
-            class="thumbnail"
-            src="thumbnail/thumbnail-4.webp"
-            onclick="window.open('https://www.youtube.com/embed/Sc6rDez5M3Y', '_blank')">
+          <img class="thumbnail" src="./thumbnail-4.webp">
 
           <div class="video-time">
             14:43
@@ -675,17 +262,13 @@ body {
 
         </div>
 
-
         <div class="video-info-grid">
 
           <div class="channel-picture">
 
-            <img
-              class="profile-picture"
-              src="channel/channel-4.jpeg">
+            <img class="profile-picture" src="./channel-4.jpeg">
 
           </div>
-
 
           <div class="video-info">
 
@@ -698,7 +281,7 @@ body {
             </p>
 
             <p class="video-stats">
-              169K views &#183; 1 day ago
+              169K views · 1 day ago
             </p>
 
           </div>
@@ -708,17 +291,13 @@ body {
       </div>
 
 
-
       <!-- VIDEO 5 -->
 
       <div class="video-preview">
 
         <div class="thumbnail-row">
 
-          <img
-            class="thumbnail"
-            src="thumbnail/thumbnail-5.webp"
-            onclick="window.open('https://www.youtube.com/embed/dAoJVzQLCQ4', '_blank')">
+          <img class="thumbnail" src="./thumbnail-5.webp">
 
           <div class="video-time">
             33:00
@@ -726,17 +305,13 @@ body {
 
         </div>
 
-
         <div class="video-info-grid">
 
           <div class="channel-picture">
 
-            <img
-              class="profile-picture"
-              src="channel/channel-5.jpeg">
+            <img class="profile-picture" src="./channel-5.jpeg">
 
           </div>
-
 
           <div class="video-info">
 
@@ -749,7 +324,7 @@ body {
             </p>
 
             <p class="video-stats">
-              2.8M views &#183; 1 day ago
+              2.8M views · 1 day ago
             </p>
 
           </div>
@@ -759,17 +334,13 @@ body {
       </div>
 
 
-
       <!-- VIDEO 6 -->
 
       <div class="video-preview">
 
         <div class="thumbnail-row">
 
-          <img
-            class="thumbnail"
-            src="thumbnail/thumbnail-6.webp"
-            onclick="window.open('https://www.youtube.com/embed/VJ9VC9OqdAA', '_blank')">
+          <img class="thumbnail" src="./thumbnail-6.webp">
 
           <div class="video-time">
             53:58
@@ -777,17 +348,13 @@ body {
 
         </div>
 
-
         <div class="video-info-grid">
 
           <div class="channel-picture">
 
-            <img
-              class="profile-picture"
-              src="channel/channel-6.jpeg">
+            <img class="profile-picture" src="./channel-6.jpeg">
 
           </div>
-
 
           <div class="video-info">
 
@@ -800,7 +367,7 @@ body {
             </p>
 
             <p class="video-stats">
-              55M views &#183; 4 days ago
+              55M views · 4 days ago
             </p>
 
           </div>
@@ -810,17 +377,14 @@ body {
       </div>
 
 
-
       <!-- VIDEO 7 -->
 
       <div class="video-preview">
 
         <div class="thumbnail-row">
 
-          <img
-            class="thumbnail"
-            src="https://img.youtube.com/vi/ffsE1x2jIZE/hqdefault.jpg"
-            onclick="window.open('https://www.youtube.com/embed/ffsE1x2jIZE', '_blank')">
+          <img class="thumbnail"
+            src="https://img.youtube.com/vi/ffsE1x2jIZE/hqdefault.jpg">
 
           <div class="video-time">
             13:19
@@ -828,17 +392,13 @@ body {
 
         </div>
 
-
         <div class="video-info-grid">
 
           <div class="channel-picture">
 
-            <img
-              class="profile-picture"
-              src="channel/channel-7.jpeg">
+            <img class="profile-picture" src="./channel-7.jpeg">
 
           </div>
-
 
           <div class="video-info">
 
@@ -851,7 +411,7 @@ body {
             </p>
 
             <p class="video-stats">
-              397K views &#183; 10 hours ago
+              397K views · 10 hours ago
             </p>
 
           </div>
@@ -861,17 +421,14 @@ body {
       </div>
 
 
-
       <!-- VIDEO 8 -->
 
       <div class="video-preview">
 
         <div class="thumbnail-row">
 
-          <img
-            class="thumbnail"
-            src="https://img.youtube.com/vi/wk62YFS3gqc/hqdefault.jpg"
-            onclick="window.open('https://www.youtube.com/embed/wk62YFS3gqc', '_blank')">
+          <img class="thumbnail"
+            src="https://img.youtube.com/vi/wk62YFS3gqc/hqdefault.jpg">
 
           <div class="video-time">
             1:06:48
@@ -879,17 +436,13 @@ body {
 
         </div>
 
-
         <div class="video-info-grid">
 
           <div class="channel-picture">
 
-            <img
-              class="profile-picture"
-              src="channel/channel-8.jpeg">
+            <img class="profile-picture" src="./channel-8.jpeg">
 
           </div>
-
 
           <div class="video-info">
 
@@ -902,7 +455,7 @@ body {
             </p>
 
             <p class="video-stats">
-              5.3M views &#183; 1 month ago
+              5.3M views · 1 month ago
             </p>
 
           </div>
@@ -912,17 +465,14 @@ body {
       </div>
 
 
-
       <!-- VIDEO 9 -->
 
       <div class="video-preview">
 
         <div class="thumbnail-row">
 
-          <img
-            class="thumbnail"
-            src="https://img.youtube.com/vi/X035AnATXfQ/hqdefault.jpg"
-            onclick="window.open('https://www.youtube.com/embed/X035AnATXfQ', '_blank')">
+          <img class="thumbnail"
+            src="https://img.youtube.com/vi/X035AnATXfQ/hqdefault.jpg">
 
           <div class="video-time">
             10:00
@@ -930,17 +480,13 @@ body {
 
         </div>
 
-
         <div class="video-info-grid">
 
           <div class="channel-picture">
 
-            <img
-              class="profile-picture"
-              src="channel/channel-9.jpeg">
+            <img class="profile-picture" src="./channel-9.jpeg">
 
           </div>
-
 
           <div class="video-info">
 
@@ -953,7 +499,7 @@ body {
             </p>
 
             <p class="video-stats">
-              4.4M views &#183; 5 months ago
+              4.4M views · 5 months ago
             </p>
 
           </div>
@@ -963,17 +509,14 @@ body {
       </div>
 
 
-
       <!-- VIDEO 10 -->
 
       <div class="video-preview">
 
         <div class="thumbnail-row">
 
-          <img
-            class="thumbnail"
-            src="https://img.youtube.com/vi/zEVzgqga3lo/hqdefault.jpg"
-            onclick="window.open('https://www.youtube.com/embed/zEVzgqga3lo', '_blank')">
+          <img class="thumbnail"
+            src="https://img.youtube.com/vi/zEVzgqga3lo/hqdefault.jpg">
 
           <div class="video-time">
             3:42
@@ -981,17 +524,13 @@ body {
 
         </div>
 
-
         <div class="video-info-grid">
 
           <div class="channel-picture">
 
-            <img
-              class="profile-picture"
-              src="channel/channel-10.jpeg">
+            <img class="profile-picture" src="./channel-10.jpeg">
 
           </div>
-
 
           <div class="video-info">
 
@@ -1004,7 +543,7 @@ body {
             </p>
 
             <p class="video-stats">
-              115M views &#183; 7 years ago
+              115M views · 7 years ago
             </p>
 
           </div>
@@ -1014,17 +553,14 @@ body {
       </div>
 
 
-
       <!-- VIDEO 11 -->
 
       <div class="video-preview">
 
         <div class="thumbnail-row">
 
-          <img
-            class="thumbnail"
-            src="https://img.youtube.com/vi/3kFZvqoByQs/hqdefault.jpg"
-            onclick="window.open('https://www.youtube.com/embed/3kFZvqoByQs', '_blank')">
+          <img class="thumbnail"
+            src="https://img.youtube.com/vi/3kFZvqoByQs/hqdefault.jpg">
 
           <div class="video-time">
             18:14
@@ -1032,17 +568,13 @@ body {
 
         </div>
 
-
         <div class="video-info-grid">
 
           <div class="channel-picture">
 
-            <img
-              class="profile-picture"
-              src="channel/channel-11.jpeg">
+            <img class="profile-picture" src="./channel-11.jpeg">
 
           </div>
-
 
           <div class="video-info">
 
@@ -1055,7 +587,7 @@ body {
             </p>
 
             <p class="video-stats">
-              368K views &#183; 9 days ago
+              368K views · 9 days ago
             </p>
 
           </div>
@@ -1065,17 +597,14 @@ body {
       </div>
 
 
-
       <!-- VIDEO 12 -->
 
       <div class="video-preview">
 
         <div class="thumbnail-row">
 
-          <img
-            class="thumbnail"
-            src="https://img.youtube.com/vi/jrSKkAxGtz4/hqdefault.jpg"
-            onclick="window.open('https://www.youtube.com/embed/jrSKkAxGtz4', '_blank')">
+          <img class="thumbnail"
+            src="https://img.youtube.com/vi/jrSKkAxGtz4/hqdefault.jpg">
 
           <div class="video-time">
             1:02:12
@@ -1083,17 +612,13 @@ body {
 
         </div>
 
-
         <div class="video-info-grid">
 
           <div class="channel-picture">
 
-            <img
-              class="profile-picture"
-              src="channel/channel-12.jpeg">
+            <img class="profile-picture" src="./channel-12.jpeg">
 
           </div>
-
 
           <div class="video-info">
 
@@ -1106,7 +631,7 @@ body {
             </p>
 
             <p class="video-stats">
-              66K views &#183; 5 months ago
+              66K views · 5 months ago
             </p>
 
           </div>
@@ -1118,7 +643,7 @@ body {
 
     </div>
 
+  </main>
 
-  </body>
-
+</body>
 </html>
